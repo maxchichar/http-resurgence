@@ -7,11 +7,17 @@ Build a `/method-inspector` endpoint that reads the HTTP method of every incomin
 **Key Tasks**
 
 ●     Register a `/method-inspector` handler using `http.HandleFunc`.
+
 ●     Read the request method using `r.Method`.
+
 ●     Respond with a plain text message that includes the method name.
+
 >> ○     GET request → "You made a GET request."
+
 >> ○     POST request → "You made a POST request."
+
 >> ○     Any other method → "You made a [METHOD] request."
+
 ●     Do not hardcode each method with its own if/else branch use the value of `r.Method` directly in your response string.
 
 **Why this matters**
