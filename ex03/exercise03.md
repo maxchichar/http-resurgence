@@ -7,12 +7,18 @@ Create a `/headers` endpoint that inspects two specific request headers: X-Custo
 **Key Tasks**
 
 ●     Read X-Custom-Token using `r.Header.Get("X-Custom-Token")`.
+
 ●     If X-Custom-Token is missing or empty respond with 400 Bad Request and the message: `"X-Custom-Token header is missing"`.
+
 ●     If X-Custom-Token is present respond with a message that includes its value. Example: `"Token received: abc123"`.
+
 ●     Also read Content-Type and append it to the response. If it is missing, append `"Content-Type not provided"`.
+
 ●     The full response for a valid request must look like this:
-○     Token received: abc123
-○     Content-Type: application/json
+
+○    ` Token received: abc123`
+
+○     `Content-Type: application/json`
 
 
 **Why this matters**
