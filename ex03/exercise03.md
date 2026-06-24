@@ -6,7 +6,7 @@ Create a `/headers` endpoint that inspects two specific request headers: X-Custo
  
 **Key Tasks**
 
-●     Read X-Custom-Token using `r.Header.Get("X-Custom-Token")`.
+●     Read X-Custom-Token using ``r.Header.Get("X-Custom-Token")``.
 
 ●     If X-Custom-Token is missing or empty respond with 400 Bad Request and the message: `"X-Custom-Token header is missing"`.
 
@@ -23,6 +23,13 @@ Create a `/headers` endpoint that inspects two specific request headers: X-Custo
 
 **Why this matters**
 
-ascii-art-web reads `r.Header` indirectly through template and form handling.
+ascii-art-web reads ``r.Header` indirectly through t`emplate and form handling.
 Understanding how headers work and what happens when they are absent prepares you for writing handlers that behave correctly under any input.
 
+**Stretch — do this after the core task works**
+
+●     What does `r.Header.Get()` return for a header key that was never sent? 
+
+Write a one-sentence answer in a comment at the top of your file.
+
+●     Is `r.Header.Get("x-custom-token")` the same as `r.Header.Get("X-Custom-Token")`? Find out.
