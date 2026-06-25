@@ -1,3 +1,5 @@
+// When i swapped w.WriteHeader with fmt.Fprintf in the last block of the code, i observed that the status code in the body and the actuall HTTP status are completely out of sync.
+
 package main
 
 import(
@@ -26,12 +28,12 @@ func statusHandler(w http.ResponseWriter, r *http.Request)  {
 
 	if statusCode < 100 || statusCode > 599 { // Code must be between 100 and 599
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("code must be valid a HTTP status code (100-599)"))
+		w.Write([]byte("code must be a valid HTTP status code (100–599)"))
 		return
 	}
 
 	w.WriteHeader(statusCode)
-	fmt.Fprintf(w, "Responding with status %d", statusCode) // Expected to provide the code
+	fmt.Fprintf(w, "Responding with status %d %s", statusCode, http.StatusText(statusCode))
 }
 
 // Server Hosting at :8080
